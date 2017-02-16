@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "711981923636",
+    "firebase_url": "https://tara-66080.firebaseio.com",
+    "project_id": "tara-66080",
+    "storage_bucket": "tara-66080.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711981923636:android:f41ce4696df8ba05",
+        "android_client_info": {
+          "package_name": "com.tara.tara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711981923636-qa2p6ak7h0c3da6n7ub6do02e2btrvgg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tara.tara",
+            "certificate_hash": "BC05762B664AF0F3CDE0804BDBBEE41E4B7DA53D"
+          }
+        },
+        {
+          "client_id": "711981923636-afvqkfmfn5edmr623iqo30a7qo9jeh9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvaPuMiBXiuelWrwVF8AMreqElJdhcrVE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711981923636-afvqkfmfn5edmr623iqo30a7qo9jeh9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
