@@ -3,6 +3,9 @@
     package="com.tara.tara">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
         android:allowBackup="true"
@@ -26,8 +29,12 @@
         <activity
             android:name=".Home"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login" />
+        <activity android:name=".FoodMenu" />
+        <activity android:name=".FoodCategory" />
+        <activity android:name=".FoodDescription" />
+        <activity android:name=".HotelAnimation"></activity>
     </application>
 
 </manifest>

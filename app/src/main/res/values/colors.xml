@@ -3,4 +3,10 @@
     <color name="colorPrimary">#F4511E</color>
     <color name="colorPrimaryDark">#D84315</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black">#000</color>
+    <color name="dull_background">#ededed</color>
+    <color name="white">#fff</color>
+    <color name="hint_color">#42000000</color>
+    <color name="success_color">#009688</color>
+    <color name="warning_color">#f4511e</color>
 </resources>
