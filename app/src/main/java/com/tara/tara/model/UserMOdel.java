@@ -8,7 +8,6 @@ public class UserModel {
     String name;
     String email;
     String userId;
-    String token;
 
     public UserModel() {
 
@@ -42,13 +41,5 @@ public class UserModel {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 }

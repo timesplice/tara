@@ -16,6 +16,7 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -58,9 +59,20 @@ public class Login extends Activity {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     userPreference.setUserInPreference(user.getUid(), user.getDisplayName(), user.getEmail());
-                    addUserToFirebase();
-                    startActivity(new Intent(Login.this, StartScan.class));
-                    finish();
+                    DatabaseReference fDBReference = fDatabase.getReference("users");
+                    UserModel userModel = userPreference.getUserDetails();
+                    fDBReference.child(userModel.getUserId()).setValue(userModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            startActivity(new Intent(Login.this, StartScan.class));
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), "Failed to save user to firebase", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -80,7 +92,6 @@ public class Login extends Activity {
     private void addUserToFirebase() {
         DatabaseReference fDBReference = fDatabase.getReference("users");
         UserModel user = userPreference.getUserDetails();
-//        String userKey = fDBReference.push().getKey();
         fDBReference.child(user.getUserId()).setValue(user);
     }
 
