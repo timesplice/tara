@@ -60,6 +60,7 @@ public class Login extends Activity {
                     userPreference.setUserInPreference(user.getUid(), user.getDisplayName(), user.getEmail());
                     addUserToFirebase();
                     startActivity(new Intent(Login.this, StartScan.class));
+                    finish();
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -70,8 +71,10 @@ public class Login extends Activity {
         loginButton.setReadPermissions("email", "public_profile");
         if (!userPreference.isUserPresent())
             startAuth();
-        else
+        else {
             startActivity(new Intent(Login.this, StartScan.class));
+            finish();
+        }
     }
 
     private void addUserToFirebase() {
