@@ -31,7 +31,7 @@ public class HotelAnimation extends AppCompatActivity {
             hotelId = hotelDetails.getStringExtra("hotelId");
             tableId = hotelDetails.getStringExtra("tableId");
         }
-        hotel.setText(hotelName);
+        hotel.setText(hotelName.replace(" ", "\n"));
         animateHotel();
     }
 
