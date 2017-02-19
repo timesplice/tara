@@ -1,8 +1,8 @@
 package com.tara.tara;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
@@ -11,23 +11,26 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.tara.tara.adapter.CategoriesAdapter;
 import com.tara.tara.model.CategoriesModel;
-import com.tara.tara.model.HotelModel;
+import com.tara.tara.model.FoodMenuModel;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class FoodCategory extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private StaggeredGridLayoutManager stagaggeredGridLayoutManager;
-    private List<CategoriesModel> categories;
+
     private CategoriesAdapter categoriesAdapter;
     private List<CategoriesModel> categoriesModels;
     private String hotelId, tableId;
+    private HashMap<String, FoodMenuModel> foodMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_category);
+        foodMenu = new HashMap<String, FoodMenuModel>();
 
         Intent hotelDetails = getIntent();
         if (hotelDetails != null) {
@@ -42,7 +45,7 @@ public class FoodCategory extends AppCompatActivity {
         recyclerView.setLayoutManager(stagaggeredGridLayoutManager);
 
         categoriesAdapter = new CategoriesAdapter(categoriesModels);
-        recyclerView.setAdapter(categoriesAdapter);
+//        recyclerView.setAdapter(categoriesAdapter);
     }
 
     private void getMenuFromFirebase() {
@@ -50,9 +53,17 @@ public class FoodCategory extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot != null && dataSnapshot.getKey() != null) {
-                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                        System.out.println("ARRAY:"+dataSnapshot.getKey());
+                    System.out.println("DATASNAPSHOT:" + dataSnapshot.getKey());
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        System.out.println("ARRAY:" + childSnapshot.getKey());
+                        foodMenu.put(childSnapshot.getKey(), childSnapshot.getValue(FoodMenuModel.class));
+                        categoriesModels.add(new CategoriesModel(childSnapshot.getKey(),
+                                foodMenu.get(childSnapshot.getKey()).getName(),
+                                foodMenu.get(childSnapshot.getKey()).getImageUrl()));
                     }
+
+                } else {
+                    System.out.println("DATASNAPSHOT: null");
                 }
             }
 

@@ -22,7 +22,7 @@ public class UserPreference {
     public static final String USERNAME = "userName";
     public static final String EMAIL = "emailAddress";
     public static final String USERID = "userid";
-    public static final String TOKEN = "token";
+
 
     public UserPreference(Context context) {
         this._context = context;
@@ -46,7 +46,7 @@ public class UserPreference {
 
     public UserModel getUserDetails() {
         UserModel user = new UserModel();
-        user.setUserId(pref.getString(ID, ""));
+        user.setUserId(pref.getString(USERID, "unknownId"));
         user.setName(pref.getString(USERNAME, "username"));
         user.setEmail(pref.getString(EMAIL, "Email"));
 

@@ -57,11 +57,9 @@ public class Login extends Activity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    userPreference.setUserInPreference(user.getUid(), user.getDisplayName(), user.getEmail());
+                    userPreference.setUserInPreference(user.getUid() + "", user.getDisplayName(), user.getEmail());
                     DatabaseReference fDBReference = fDatabase.getReference("users");
                     UserModel userModel = userPreference.getUserDetails();
-                    Log.d("USER ID FROM PREFERENCE", userModel.getUserId());
                     fDBReference.child(userModel.getUserId()).setValue(userModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

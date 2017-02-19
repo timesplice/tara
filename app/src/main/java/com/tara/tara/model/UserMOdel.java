@@ -1,9 +1,12 @@
 package com.tara.tara.model;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 /**
  * Created by M1032467 on 2/19/2017.
  */
 
+@IgnoreExtraProperties
 public class UserModel {
     String name;
     String email;
