@@ -68,7 +68,10 @@ public class HotelAnimation extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivity(new Intent(HotelAnimation.this, ChoosePayment.class));
+                Intent category = new Intent(HotelAnimation.this, FoodCategory.class);
+                category.putExtra("tableId", tableId);
+                category.putExtra("hotelId", hotelId);
+                startActivity(category);
             }
 
             @Override
