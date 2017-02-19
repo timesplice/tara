@@ -3,6 +3,7 @@ package com.tara.tara.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +13,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
 import com.tara.tara.Login;
 import com.tara.tara.R;
 import com.tara.tara.model.CategoriesModel;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by M1032467 on 2/17/2017.
@@ -61,15 +66,27 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
     @Override
     public void onBindViewHolder(CategoriesAdapter.CategoryViewHolder holder, int position) {
-        ImageView imageView = holder.imageView;
+        final ImageView imageView = holder.imageView;
         TextView categoryTitle = holder.categoryTitle;
 
         categoryTitle.setText(data.get(position).getCategoryName());
-        Context context = imageView.getContext();
-        Glide.with(context)
-                .using(new FirebaseImageLoader())
-                .load(FirebaseStorage.getInstance().getReference(data.get(position).getImage()))
-                .into(imageView);
+        final Context context = imageView.getContext();
+
+        FirebaseStorage.getInstance().getReference().child(data.get(position).getImage()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(context)
+                        .load(uri)
+                        .into(imageView);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+
+
     }
 
     @Override

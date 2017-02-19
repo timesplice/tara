@@ -14,7 +14,9 @@ import com.tara.tara.model.CategoriesModel;
 import com.tara.tara.model.FoodMenuModel;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class FoodCategory extends AppCompatActivity {
 
@@ -54,12 +56,17 @@ public class FoodCategory extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot != null && dataSnapshot.getKey() != null) {
                     System.out.println("DATASNAPSHOT:" + dataSnapshot.getKey());
+                    Set<String> categories = new HashSet<>();
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         System.out.println("ARRAY:" + childSnapshot.getKey());
                         foodMenu.put(childSnapshot.getKey(), childSnapshot.getValue(FoodMenuModel.class));
-                        categoriesModels.add(new CategoriesModel(childSnapshot.getKey(),
-                                foodMenu.get(childSnapshot.getKey()).getName(),
-                                foodMenu.get(childSnapshot.getKey()).getImageUrl()));
+                        String category = foodMenu.get(childSnapshot.getKey()).getCategory().toLowerCase().replace(" ","")+".jpg";
+                        if(!categories.contains(category)) {
+                            categoriesModels.add(new CategoriesModel(childSnapshot.getKey(),
+                                    foodMenu.get(childSnapshot.getKey()).getCategory(),
+                                    hotelId+"/category/"+category));
+                            categories.add(category);
+                        }
                     }
                     categoriesAdapter.notifyDataSetChanged();
                 } else {

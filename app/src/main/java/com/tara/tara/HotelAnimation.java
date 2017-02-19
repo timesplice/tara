@@ -72,6 +72,7 @@ public class HotelAnimation extends AppCompatActivity {
                 category.putExtra("tableId", tableId);
                 category.putExtra("hotelId", hotelId);
                 startActivity(category);
+                finish();
             }
 
             @Override
