@@ -152,34 +152,12 @@
                 android:text="4.7"
                 android:textColor="@color/black"
                 android:textSize="40sp" />
-
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/comments_container"
+        <include
+            layout="@layout/content_food_desc_comments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rating_container"
-            android:background="@color/white"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/comments_heading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Comments"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <View
-                android:id="@+id/comments_separator"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_below="@+id/comments_heading"
-                android:layout_marginBottom="10dp"
-                android:background="@color/dull_background" />
-
-        </RelativeLayout>
+            android:layout_below="@+id/rating_container" />
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>

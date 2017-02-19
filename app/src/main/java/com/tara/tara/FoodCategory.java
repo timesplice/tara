@@ -34,6 +34,7 @@ public class FoodCategory extends AppCompatActivity {
         setContentView(R.layout.activity_food_category);
         foodMenu = new HashMap<String, FoodMenuModel>();
 
+        setTitle("Categories");
         Intent hotelDetails = getIntent();
         if (hotelDetails != null) {
             hotelId = hotelDetails.getStringExtra("hotelId");
@@ -43,7 +44,7 @@ public class FoodCategory extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.categories);
         recyclerView.setHasFixedSize(true);
 
-        stagaggeredGridLayoutManager = new StaggeredGridLayoutManager(3, 1);
+        stagaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, 1);
         recyclerView.setLayoutManager(stagaggeredGridLayoutManager);
 
         categoriesAdapter = new CategoriesAdapter(categoriesModels);
@@ -60,11 +61,11 @@ public class FoodCategory extends AppCompatActivity {
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         System.out.println("ARRAY:" + childSnapshot.getKey());
                         foodMenu.put(childSnapshot.getKey(), childSnapshot.getValue(FoodMenuModel.class));
-                        String category = foodMenu.get(childSnapshot.getKey()).getCategory().toLowerCase().replace(" ","")+".jpg";
-                        if(!categories.contains(category)) {
+                        String category = foodMenu.get(childSnapshot.getKey()).getCategory().toLowerCase().replace(" ", "") + ".jpg";
+                        if (!categories.contains(category)) {
                             categoriesModels.add(new CategoriesModel(childSnapshot.getKey(),
                                     foodMenu.get(childSnapshot.getKey()).getCategory(),
-                                    hotelId+"/category/"+category));
+                                    hotelId + "/category/" + category));
                             categories.add(category);
                         }
                     }
