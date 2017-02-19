@@ -7,12 +7,15 @@
     android:background="@color/colorPrimary"
     tools:context="com.tara.tara.HotelAnimation">
 
-    <ImageView
+    <TextView
         android:id="@+id/hotel_anim"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/ic_chef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_chef"
+        android:text="Hotel name"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
 
 </RelativeLayout>

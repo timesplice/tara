@@ -7,8 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.tara.tara.model.HotelModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +50,31 @@ public class StartScan extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(result.getContents());
                     System.out.println("RESULT:::::::::::::::::::" + result.getContents());
-                    String hotelId =(String) obj.get("hotel");
+                    final String hotelId = (String) obj.get("hotelId");
+                    final String tableId = (String) obj.get("tableId");
+                    if (hotelId != null && tableId != null) {
+                        Login.fDatabase.getReference("hotels/" + hotelId).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                if (dataSnapshot != null && dataSnapshot.getKey() != null) {
+                                    HotelModel hotelModel = dataSnapshot.getValue(HotelModel.class);
+
+                                    Intent hotelDetails = new Intent(StartScan.this, HotelAnimation.class);
+                                    hotelDetails.putExtra("hotelName", hotelModel.getName());
+                                    hotelDetails.putExtra("hotelId", hotelId);
+                                    hotelDetails.putExtra("tableId", tableId);
+                                    startActivity(hotelDetails);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    } else {
+                        Toast.makeText(this, "Invalid QR code scanned", Toast.LENGTH_SHORT).show();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

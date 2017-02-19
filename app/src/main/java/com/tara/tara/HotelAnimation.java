@@ -7,13 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tara.tara.fragments.FingerprintAuth;
 
 public class HotelAnimation extends AppCompatActivity {
 
     private Animation animZoomIn, animZoomOut;
-    private ImageView hotel;
+    private TextView hotel;
+    String hotelId, hotelName, tableId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,14 @@ public class HotelAnimation extends AppCompatActivity {
 
         getSupportActionBar().setElevation(0);
         setTitle(" ");
-        hotel = (ImageView) findViewById(R.id.hotel_anim);
+        hotel = (TextView) findViewById(R.id.hotel_anim);
+        Intent hotelDetails = getIntent();
+        if (hotelDetails != null) {
+            hotelName = hotelDetails.getStringExtra("hotelName");
+            hotelId = hotelDetails.getStringExtra("hotelId");
+            tableId = hotelDetails.getStringExtra("tableId");
+        }
+        hotel.setText(hotelName);
         animateHotel();
     }
 
