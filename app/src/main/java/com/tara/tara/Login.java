@@ -61,6 +61,7 @@ public class Login extends Activity {
                     userPreference.setUserInPreference(user.getUid(), user.getDisplayName(), user.getEmail());
                     DatabaseReference fDBReference = fDatabase.getReference("users");
                     UserModel userModel = userPreference.getUserDetails();
+                    Log.d("USER ID FROM PREFERENCE", userModel.getUserId());
                     fDBReference.child(userModel.getUserId()).setValue(userModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
