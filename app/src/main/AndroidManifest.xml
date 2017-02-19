@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
@@ -34,7 +33,9 @@
         <activity android:name=".FoodMenu" />
         <activity android:name=".FoodCategory" />
         <activity android:name=".FoodDescription" />
-        <activity android:name=".HotelAnimation"></activity>
+        <activity android:name=".HotelAnimation" />
+        <activity android:name=".ChoosePayment" />
+        <activity android:name=".StartScan"></activity>
     </application>
 
 </manifest>
