@@ -22,6 +22,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.tara.tara.model.UserModel;
 import com.tara.tara.util.UserPreference;
 
 public class Login extends Activity {
@@ -32,6 +35,7 @@ public class Login extends Activity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private UserPreference userPreference;
+    public static FirebaseDatabase fDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,25 @@ public class Login extends Activity {
         setContentView(R.layout.activity_login);
         userPreference = new UserPreference(Login.this);
 
+        mAuth = FirebaseAuth.getInstance();
+        mCallbackManager = CallbackManager.Factory.create();
+        fDatabase = FirebaseDatabase.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    userPreference.setUserInPreference(user.getUid(), user.getDisplayName(), user.getEmail());
+                    addUserToFirebase();
+                    startActivity(new Intent(Login.this, StartScan.class));
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+            }
+        };
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email", "public_profile");
         if (!userPreference.isUserPresent())
@@ -51,9 +74,15 @@ public class Login extends Activity {
             startActivity(new Intent(Login.this, StartScan.class));
     }
 
+    private void addUserToFirebase() {
+        DatabaseReference fDBReference = fDatabase.getReference("users");
+        UserModel user = userPreference.getUserDetails();
+//        String userKey = fDBReference.push().getKey();
+        fDBReference.child(user.getUserId()).setValue(user);
+    }
+
     private void startAuth() {
-        mAuth = FirebaseAuth.getInstance();
-        mCallbackManager = CallbackManager.Factory.create();
+
         // Callback registration
         loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -71,22 +100,6 @@ public class Login extends Activity {
             public void onError(FacebookException exception) {
             }
         });
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    userPreference.setUserInPreference(user.getUid(), user.getDisplayName(), user.getEmail());
-                    startActivity(new Intent(Login.this, StartScan.class));
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-            }
-        };
     }
 
     private void handleFacebookAccessToken(AccessToken token) {

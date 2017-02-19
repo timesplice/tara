@@ -44,6 +44,7 @@ public class StartScan extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(result.getContents());
                     System.out.println("RESULT:::::::::::::::::::" + result.getContents());
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
