@@ -45,7 +45,7 @@ public class FoodCategory extends AppCompatActivity {
         recyclerView.setLayoutManager(stagaggeredGridLayoutManager);
 
         categoriesAdapter = new CategoriesAdapter(categoriesModels);
-//        recyclerView.setAdapter(categoriesAdapter);
+        recyclerView.setAdapter(categoriesAdapter);
     }
 
     private void getMenuFromFirebase() {
@@ -61,7 +61,7 @@ public class FoodCategory extends AppCompatActivity {
                                 foodMenu.get(childSnapshot.getKey()).getName(),
                                 foodMenu.get(childSnapshot.getKey()).getImageUrl()));
                     }
-
+                    categoriesAdapter.notifyDataSetChanged();
                 } else {
                     System.out.println("DATASNAPSHOT: null");
                 }

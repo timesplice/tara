@@ -10,7 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
+import com.tara.tara.Login;
 import com.tara.tara.R;
 import com.tara.tara.model.CategoriesModel;
 
@@ -62,9 +66,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
         categoryTitle.setText(data.get(position).getCategoryName());
         Context context = imageView.getContext();
-        Uri uri = Uri.parse(data.get(position).getImage());
-        Picasso.with(context)
-                .load(uri)
+        Glide.with(context)
+                .using(new FirebaseImageLoader())
+                .load(FirebaseStorage.getInstance().getReference(data.get(position).getImage()))
                 .into(imageView);
     }
 
