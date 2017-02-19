@@ -51,7 +51,7 @@ public class FoodCategory extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot != null && dataSnapshot.getKey() != null) {
                     for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                        System.out.println("ARRAY:"+dataSnapshot.getKey());
+                        System.out.println("ARRAY:"+postSnapshot.getKey());
                     }
                 }
             }
