@@ -24,7 +24,7 @@ public class FoodDescription extends AppCompatActivity {
     private TextView foodName, foodDesc, foodPrice, rating;
     private ProgressBar progressBar;
 
-    Imag
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
