@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 public class FoodDescription extends AppCompatActivity {
 
+    Imag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
