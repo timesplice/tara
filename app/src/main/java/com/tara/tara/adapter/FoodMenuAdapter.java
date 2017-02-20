@@ -74,6 +74,8 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
         Uri uri = Uri.parse(data.get(position).getImageUrl());
         Picasso.with(context)
                 .load(uri)
+                .resize(100, 100)
+                .centerInside()
                 .into(imageView);
     }
 
