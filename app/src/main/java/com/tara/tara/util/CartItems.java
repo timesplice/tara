@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.sql.Date;
-
 
 /**
  * Created by M1032467 on 2/20/2017.
@@ -49,11 +47,11 @@ public class CartItems extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addFood(String foodId, String food_name, String desc, int price, String imageUrl) {
+    public void addFood(String foodId, String foodName, String desc, int price, String imageUrl) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues insertValues = new ContentValues();
         insertValues.put(FOOD_ID, foodId);
-        insertValues.put(FOOD_NAME, food_name);
+        insertValues.put(FOOD_NAME, foodName);
         insertValues.put(PRICE, price);
         insertValues.put(FOOD_DESC, desc);
         insertValues.put(IMAGE_URL, imageUrl);
@@ -64,7 +62,7 @@ public class CartItems extends SQLiteOpenHelper {
         Log.d("Inserted into db => ", "");
     }
 
-    public Cursor getAllProducts() {
+    public Cursor getAllItems() {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(QUERY_SELECT, null);
         return cursor;

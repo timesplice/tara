@@ -3,6 +3,7 @@ package com.tara.tara.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
+import com.tara.tara.FoodDescription;
 import com.tara.tara.R;
 import com.tara.tara.model.CategoriesModel;
 import com.tara.tara.model.FoodMenuModel;
@@ -24,9 +29,12 @@ import java.util.List;
 public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuViewHolder> {
 
     private List<FoodMenuModel> data;
+    private String hotelId,tableId;
 
     public FoodMenuAdapter(List<FoodMenuModel> data, String hotelId, String tableId) {
         this.data = data;
+        this.hotelId = hotelId;
+        this.tableId = tableId;
     }
 
     public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -47,7 +55,13 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
 
         @Override
         public void onClick(View v) {
-
+            int position = getLayoutPosition();
+            FoodMenuModel foodItemModel = data.get(position);
+            Intent intent = new Intent(v.getContext(), FoodDescription.class);
+            intent.putExtra("foodItemModel", foodItemModel);
+            intent.putExtra("hotelId", hotelId);
+            intent.putExtra("tableId", tableId);
+            v.getContext().startActivity(intent);
         }
     }
 
@@ -62,21 +76,35 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
 
     @Override
     public void onBindViewHolder(FoodMenuAdapter.MenuViewHolder holder, int position) {
-        ImageView imageView = holder.imageView;
+        final ImageView imageView = holder.imageView;
         TextView foodTitle = holder.foodTitle;
         TextView foodDesc = holder.foodDesc;
         TextView foodPrice = holder.foodPrice;
 
+        System.out.println("POSITION:"+position);
+        System.out.println("IN ADAPTER:"+data.get(position).getName());
+
         foodTitle.setText(data.get(position).getName());
         foodDesc.setText(data.get(position).getDesc());
         foodPrice.setText("" + data.get(position).getPrice());
-        Context context = imageView.getContext();
-        Uri uri = Uri.parse(data.get(position).getImageUrl());
-        Picasso.with(context)
-                .load(uri)
-                .resize(100, 100)
-                .centerInside()
-                .into(imageView);
+
+        final Context context = imageView.getContext();
+
+        FirebaseStorage.getInstance().getReference().child(data.get(position).getImageUrl()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                   Picasso.with(context)
+                        .load(uri)
+                        .resize(100,100)
+                        .centerInside()
+                        .into(imageView);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
     }
 
     @Override

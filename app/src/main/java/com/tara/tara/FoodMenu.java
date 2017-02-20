@@ -45,6 +45,8 @@ public class FoodMenu extends AppCompatActivity {
             hotelId = data.getStringExtra("hotelId");
             tableId = data.getStringExtra("tableId");
             foodIds = data.getStringArrayListExtra("foodIdList");
+            System.out.println("FOODIDS:"+foodIds.toString());
+
         }
 
         recyclerView = (RecyclerView) findViewById(R.id.food_menu);
@@ -65,6 +67,7 @@ public class FoodMenu extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     foodData.add(dataSnapshot.getValue(FoodMenuModel.class));
+                    System.out.println("foodData:"+foodData.get(foodData.size()-1).getName());
                     if (foodData.size() == foodIds.size()) {
                         foodMenuAdapter.notifyDataSetChanged();
                     }
