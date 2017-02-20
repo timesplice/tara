@@ -22,7 +22,8 @@
                 android:id="@+id/food_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/food_title"
@@ -70,9 +71,9 @@
                 android:id="@+id/price_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:layout_below="@+id/food_desc_separator"
-                android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:id="@+id/food_price"
@@ -96,9 +97,9 @@
                         android:id="@+id/add_to_cart"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:padding="5dp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/white"
+                        android:padding="5dp"
                         android:text="Add to cart" />
                 </RelativeLayout>
             </LinearLayout>
