@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -73,7 +71,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
                 foodIdList.add(food.getFoodId());
             }
             //intent.putExtra("PRODUCT_ID",  foodMenu.get(category.getCategoryName()));
-            intent.putExtra("foodIdList", foodIdList);
+            intent.putStringArrayListExtra("foodIdList", foodIdList);
             intent.putExtra("hotelId", hotelId);
             intent.putExtra("tableId", tableId);
             v.getContext().startActivity(intent);

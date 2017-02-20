@@ -25,7 +25,7 @@ public class FoodCategory extends AppCompatActivity {
     private StaggeredGridLayoutManager stagaggeredGridLayoutManager;
 
     private CategoriesAdapter categoriesAdapter;
-    private List<CategoriesModel> categoriesModels;
+    private List<CategoriesModel> categoriesModels=new ArrayList<>();
     private String hotelId, tableId;
     private HashMap<String, ArrayList<FoodMenuModel>> foodMenu;
 
@@ -67,14 +67,14 @@ public class FoodCategory extends AppCompatActivity {
                         if (!categories.contains(category)) {
                             ArrayList<FoodMenuModel> newCategoryFoods = new ArrayList<>();
                             newCategoryFoods.add(food);
-                            foodMenu.put(category, newCategoryFoods);
+                            foodMenu.put(food.getCategory(), newCategoryFoods);
 
                             categoriesModels.add(new CategoriesModel(childSnapshot.getKey(),
                                     food.getCategory(),
                                     hotelId + "/category/" + category));
                             categories.add(category);
                         } else {
-                            foodMenu.get(category).add(food);
+                            foodMenu.get(food.getCategory()).add(food);
                         }
                     }
                     categoriesAdapter.notifyDataSetChanged();
