@@ -47,7 +47,7 @@ public class FoodMenu extends AppCompatActivity {
             foodIds = data.getStringArrayListExtra("foodIdList");
         }
 
-        recyclerView = (RecyclerView) findViewById(R.id.categories);
+        recyclerView = (RecyclerView) findViewById(R.id.food_menu);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
