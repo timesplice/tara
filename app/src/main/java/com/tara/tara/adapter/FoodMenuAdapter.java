@@ -87,6 +87,7 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
         foodTitle.setText(data.get(position).getName());
         foodDesc.setText(data.get(position).getDesc());
         foodPrice.setText("" + data.get(position).getPrice());
+
         final Context context = imageView.getContext();
 
         FirebaseStorage.getInstance().getReference().child(data.get(position).getImageUrl()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -102,7 +103,6 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
                 // Handle any errors
             }
         });
-
     }
 
     @Override

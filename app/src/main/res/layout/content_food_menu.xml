@@ -18,7 +18,8 @@
             android:layout_height="100dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:scaleType="fitCenter" />
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside" />
 
         <RelativeLayout
             android:id="@+id/rel"
@@ -35,11 +36,12 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
+                android:maxLines="1"
                 android:paddingEnd="150dp"
                 android:scrollHorizontally="false"
                 android:text="title"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/food_desc"
@@ -80,11 +82,11 @@
                     android:padding="1dp">
 
                     <Button
+                        android:id="@+id/button2"
                         android:layout_width="60dp"
                         android:layout_height="30dp"
                         android:background="@color/white"
-                        android:text="Add"
-                        android:id="@+id/button2" />
+                        android:text="Add" />
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
