@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.tara.tara.adapter.CartItemsAdapter;
 import com.tara.tara.model.FoodMenuModel;
@@ -22,10 +23,11 @@ public class Cart extends AppCompatActivity {
     private CartItemsAdapter cartAdapter;
     private CartItems cartItemsDb;
     List<FoodMenuModel> cartItems = new ArrayList<>();
+     
 
     public static final String FOOD_ID = "food_id";
     public static final String FOOD_NAME = "food_name";
-    public static final String FOOD_DESC = "desc";
+    public static final String FOOD_DESC = "description";
     public static final String PRICE = "price";
     public static final String IMAGE_URL = "image_url";
 
@@ -55,6 +57,7 @@ public class Cart extends AppCompatActivity {
 
     private void populateCartItems() {
         Cursor cursor = cartItemsDb.getAllItems();
+        System.out.println("POPULATE CAT::");
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 FoodMenuModel foodItem = new FoodMenuModel();
@@ -63,10 +66,18 @@ public class Cart extends AppCompatActivity {
                 foodItem.setPrice(cursor.getInt(cursor.getColumnIndex(PRICE)));
                 foodItem.setImageUrl(cursor.getString(cursor.getColumnIndex(IMAGE_URL)));
                 foodItem.setDesc(cursor.getString(cursor.getColumnIndex(FOOD_DESC)));
-
+                System.out.println("FOOD IN CART:"+foodItem.getFoodId());
                 cartItems.add(foodItem);
+
             } while (cursor.moveToNext());
         }
         cartAdapter.notifyDataSetChanged();
+    }
+
+
+    public void removeItem(FoodMenuModel cartItem) {
+        cartItemsDb.deleteByProductId(cartItem.getFoodId());
+        cartItems.clear();
+        populateCartItems();
     }
 }
