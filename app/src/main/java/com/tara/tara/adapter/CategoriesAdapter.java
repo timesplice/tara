@@ -3,6 +3,8 @@ package com.tara.tara.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,10 +19,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
+import com.tara.tara.FoodMenu;
 import com.tara.tara.Login;
 import com.tara.tara.R;
 import com.tara.tara.model.CategoriesModel;
+import com.tara.tara.model.FoodMenuModel;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,10 +38,16 @@ import java.util.Set;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder> {
 
+    private final HashMap<String, ArrayList<FoodMenuModel>> foodMenu;
     private List<CategoriesModel> data;
+    private String hotelId, tableId;
 
-    public CategoriesAdapter(List<CategoriesModel> data) {
+    public CategoriesAdapter(List<CategoriesModel> data, HashMap<String, ArrayList<FoodMenuModel>> foodMenu,
+                             String hotelId, String tableId) {
         this.data = data;
+        this.foodMenu = foodMenu;
+        this.tableId = tableId;
+        this.hotelId = hotelId;
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -51,7 +64,19 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
         @Override
         public void onClick(View v) {
+            int position = getLayoutPosition();
+            CategoriesModel category = data.get(position);
+            Intent intent = new Intent(v.getContext(), FoodMenu.class);
 
+            ArrayList<String> foodIdList = new ArrayList<String>();
+            for (FoodMenuModel food : foodMenu.get(category.getCategoryName())) {
+                foodIdList.add(food.getFoodId());
+            }
+            //intent.putExtra("PRODUCT_ID",  foodMenu.get(category.getCategoryName()));
+            intent.putExtra("foodIdList", foodIdList);
+            intent.putExtra("hotelId", hotelId);
+            intent.putExtra("tableId", tableId);
+            v.getContext().startActivity(intent);
         }
     }
 

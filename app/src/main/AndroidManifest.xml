@@ -35,7 +35,8 @@
         <activity android:name=".FoodDescription" />
         <activity android:name=".HotelAnimation" />
         <activity android:name=".ChoosePayment" />
-        <activity android:name=".StartScan"></activity>
+        <activity android:name=".StartScan" />
+        <activity android:name=".Cart"></activity>
     </application>
 
 </manifest>

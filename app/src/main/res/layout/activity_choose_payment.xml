@@ -219,6 +219,4 @@
             android:textColor="@color/white"
             android:textSize="11sp" />
     </LinearLayout>
-
-
 </RelativeLayout>

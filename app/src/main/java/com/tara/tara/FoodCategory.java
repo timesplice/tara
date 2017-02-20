@@ -13,6 +13,7 @@ import com.tara.tara.adapter.CategoriesAdapter;
 import com.tara.tara.model.CategoriesModel;
 import com.tara.tara.model.FoodMenuModel;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -26,13 +27,13 @@ public class FoodCategory extends AppCompatActivity {
     private CategoriesAdapter categoriesAdapter;
     private List<CategoriesModel> categoriesModels;
     private String hotelId, tableId;
-    private HashMap<String, FoodMenuModel> foodMenu;
+    private HashMap<String, ArrayList<FoodMenuModel>> foodMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_category);
-        foodMenu = new HashMap<String, FoodMenuModel>();
+        foodMenu = new HashMap<String, ArrayList<FoodMenuModel>>();
 
         setTitle("Categories");
         Intent hotelDetails = getIntent();
@@ -47,7 +48,7 @@ public class FoodCategory extends AppCompatActivity {
         stagaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, 1);
         recyclerView.setLayoutManager(stagaggeredGridLayoutManager);
 
-        categoriesAdapter = new CategoriesAdapter(categoriesModels);
+        categoriesAdapter = new CategoriesAdapter(categoriesModels, foodMenu, hotelId, tableId);
         recyclerView.setAdapter(categoriesAdapter);
     }
 
@@ -59,14 +60,21 @@ public class FoodCategory extends AppCompatActivity {
                     System.out.println("DATASNAPSHOT:" + dataSnapshot.getKey());
                     Set<String> categories = new HashSet<>();
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        FoodMenuModel food = childSnapshot.getValue(FoodMenuModel.class);
+
                         System.out.println("ARRAY:" + childSnapshot.getKey());
-                        foodMenu.put(childSnapshot.getKey(), childSnapshot.getValue(FoodMenuModel.class));
-                        String category = foodMenu.get(childSnapshot.getKey()).getCategory().toLowerCase().replace(" ", "") + ".jpg";
+                        String category = food.getCategory().toLowerCase().replace(" ", "") + ".jpg";
                         if (!categories.contains(category)) {
+                            ArrayList<FoodMenuModel> newCategoryFoods = new ArrayList<>();
+                            newCategoryFoods.add(food);
+                            foodMenu.put(category, newCategoryFoods);
+
                             categoriesModels.add(new CategoriesModel(childSnapshot.getKey(),
-                                    foodMenu.get(childSnapshot.getKey()).getCategory(),
+                                    food.getCategory(),
                                     hotelId + "/category/" + category));
                             categories.add(category);
+                        } else {
+                            foodMenu.get(category).add(food);
                         }
                     }
                     categoriesAdapter.notifyDataSetChanged();

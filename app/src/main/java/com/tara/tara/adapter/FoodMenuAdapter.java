@@ -25,7 +25,7 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
 
     private List<FoodMenuModel> data;
 
-    public FoodMenuAdapter(List<FoodMenuModel> data) {
+    public FoodMenuAdapter(List<FoodMenuModel> data, String hotelId, String tableId) {
         this.data = data;
     }
 

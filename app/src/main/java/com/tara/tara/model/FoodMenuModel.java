@@ -1,5 +1,9 @@
 package com.tara.tara.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +11,8 @@ import java.util.Map;
  * Created by M1032467 on 2/18/2017.
  */
 
-public class FoodMenuModel {
+public class FoodMenuModel  implements Serializable {
+    String foodId;
     String name;
     String shortDesc;
     String desc;
@@ -24,7 +29,17 @@ public class FoodMenuModel {
 
     }
 
-    public FoodMenuModel(String name, String shortDesc, String desc, double price, String category, String imageUrl) {
+    public String getFoodId() {
+        return foodId;
+    }
+
+    public void setFoodId(String foodId) {
+        this.foodId = foodId;
+    }
+
+    public FoodMenuModel(String foodId, String name, String shortDesc, String desc, double price, String category, String imageUrl) {
+        this.foodId = foodId;
+
         this.name = name;
         this.shortDesc = shortDesc;
         this.desc = desc;
