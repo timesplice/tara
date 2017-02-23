@@ -19,12 +19,12 @@ public class CartItems extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "cart";
     public static final String FOOD_ID = "food_id";
     public static final String FOOD_NAME = "food_name";
-    public static final String FOOD_DESC = "desc";
+    public static final String FOOD_DESC = "description";
     public static final String PRICE = "price";
     public static final String IMAGE_URL = "image_url";
     public static final String ORDER_DATE = "order_date";
     private static final String QUERY_CREATE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + FOOD_ID + " TEXT, " + FOOD_NAME + " TEXT, " + PRICE + "  NUMBER, " + IMAGE_URL + " TEXT, " + FOOD_DESC + "TEXT," + ORDER_DATE + " DATE);";
+            + FOOD_ID + " TEXT, " + FOOD_NAME + " TEXT, " + PRICE + "  NUMBER, " + IMAGE_URL + " TEXT, " + FOOD_DESC + " TEXT," + ORDER_DATE + " DATE);";
     private static final String QUERY_DELETE = "DELETE FROM " + TABLE_NAME + ";";
     private static final String QUERY_DELETE_BY_PRODUCT_ID = "DELETE FROM " + TABLE_NAME + " WHERE " + FOOD_ID + ";";
     private static final String QUERY_SELECT = "SELECT DISTINCT * FROM " + TABLE_NAME + " ORDER BY date(" + ORDER_DATE + ") DESC;";
@@ -36,6 +36,7 @@ public class CartItems extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i("createDB=", QUERY_CREATE);
+        System.out.println("CREATE DBBBBBBBBBBBBBBBBBBBBBB"+QUERY_CREATE);
         db.execSQL(QUERY_CREATE);
     }
 
@@ -48,6 +49,7 @@ public class CartItems extends SQLiteOpenHelper {
     }
 
     public void addFood(String foodId, String foodName, String desc, int price, String imageUrl) {
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues insertValues = new ContentValues();
         insertValues.put(FOOD_ID, foodId);
@@ -75,7 +77,7 @@ public class CartItems extends SQLiteOpenHelper {
 
     public void deleteByProductId(String id) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + FOOD_ID + " = " + id + ";");
+        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + FOOD_ID + " = '" + id + "';");
     }
 
 //    public boolean checkIfProductPresent(String id) {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
+import com.tara.tara.Cart;
 import com.tara.tara.R;
 import com.tara.tara.model.FoodMenuModel;
 
@@ -59,7 +61,10 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Cart
                 @Override
                 public void onClick(View v) {
                     int position = getLayoutPosition();
-
+                    FoodMenuModel foodItem = data.get(position);
+                    Cart cart = (Cart)getRequiredActivity(v);
+                    removeFromAdapter(position);
+                    removeFromView(cart,foodItem);
                 }
             });
 
@@ -72,16 +77,16 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Cart
             });
         }
 
-//        private void removeFromView(final Cart cart, final CartItem cartItem) {
-//            final Handler handler = new Handler();
-//            handler.postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    //Do something after 100ms
-//                    cart.removeItem(cartItem);
-//                }
-//            }, 500);
-//        }
+        private void removeFromView(final Cart cart, final FoodMenuModel cartItem) {
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //Do something after 100ms
+                    cart.removeItem(cartItem);
+                }
+            }, 500);
+        }
 
         private void removeFromAdapter(int position) {
             data.remove(position);
@@ -117,7 +122,7 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Cart
         final ImageView foodImage = holder.foodImage;
 
         productTitle.setText(data.get(position).getName());
-        productAmount.setText(data.get(position).getPrice() + "");
+        productAmount.setText(data.get(position).getPrice() + " ₹");
         foodDescription.setText(data.get(position).getDesc());
 
         FirebaseStorage.getInstance().getReference().child(data.get(position).getImageUrl()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
