@@ -67,7 +67,7 @@ public class Cart extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Cart.this, ElapsedTime.class);
+                Intent intent = new Intent(Cart.this, ChoosePayment.class);
                 intent.putExtra("hotelId", hotelId);
                 intent.putExtra("tableId", tableId);
                 intent.putExtra("total", grandTotal);

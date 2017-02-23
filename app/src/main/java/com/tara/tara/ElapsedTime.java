@@ -28,6 +28,7 @@ import com.tara.tara.model.FoodMenuModel;
 import com.tara.tara.model.HotelOrderModel;
 import com.tara.tara.model.UserOrderModel;
 import com.tara.tara.util.CartItems;
+import com.tara.tara.util.ScanPreference;
 import com.tara.tara.util.UserPreference;
 
 import java.util.Date;
@@ -42,6 +43,7 @@ public class ElapsedTime extends AppCompatActivity {
     private TextView timerText, headingText;
     private String hotelId, tableId, userId, orderId;
     private UserPreference userPreference;
+    private ScanPreference scanPreference;
     private CartItems cartItemsDb;
     private boolean timer = false;
     private Long givenTimeMillis;
@@ -61,14 +63,15 @@ public class ElapsedTime extends AppCompatActivity {
         timerText = (TextView) findViewById(R.id.timer);
         headingText = (TextView) findViewById(R.id.heading);
         userPreference = new UserPreference(this);
+        scanPreference = new ScanPreference(this);
         cartItemsDb = new CartItems(this);
 
         Intent data = getIntent();
         if (data != null) {
-            hotelId = data.getStringExtra("hotelId");
-            tableId = data.getStringExtra("tableId");
             total = data.getIntExtra("total", 0);
         }
+        hotelId = scanPreference.getScanDetails().getHotelId();
+        tableId = scanPreference.getScanDetails().getTableId();
         userId = userPreference.getUserDetails().getUserId();
 
         addHotelOrder();
@@ -89,7 +92,7 @@ public class ElapsedTime extends AppCompatActivity {
             } while (cursor.moveToNext());
         }
         HotelOrderModel hotelOrder = new HotelOrderModel(userId, hotelId, tableId, orderKey, orderedItems);
-
+        hotelOrder.setPayment(true);
         fDBReference.child(orderKey).setValue(hotelOrder);
         System.out.println("Added Hotel Order");
 
