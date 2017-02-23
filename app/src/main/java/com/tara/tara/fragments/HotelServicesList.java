@@ -52,7 +52,7 @@ public class HotelServicesList extends Fragment {
         View view = inflater.inflate(R.layout.fragment_hotel_services_list, container, false);
 
         viewMenu = (TextView) view.findViewById(R.id.view_menu);
-        contactLaundary = (TextView) view.findViewById(R.id.laundary);
+        contactLaundary = (TextView) view.findViewById(R.id.laundry);
         viewMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

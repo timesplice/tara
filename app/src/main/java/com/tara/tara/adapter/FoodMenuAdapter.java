@@ -97,6 +97,7 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
                         .load(uri)
                         .fit()
                         .centerCrop()
+                        .placeholder(R.drawable.ic_img_placeholder)
                         .into(imageView);
             }
         }).addOnFailureListener(new OnFailureListener() {

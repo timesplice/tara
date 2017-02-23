@@ -100,6 +100,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
             public void onSuccess(Uri uri) {
                 Picasso.with(context)
                         .load(uri)
+                        .placeholder(R.drawable.ic_img_placeholder)
                         .into(imageView);
             }
         }).addOnFailureListener(new OnFailureListener() {

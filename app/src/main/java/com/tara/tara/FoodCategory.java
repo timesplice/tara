@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +36,7 @@ public class FoodCategory extends AppCompatActivity {
     private HashMap<String, ArrayList<FoodMenuModel>> foodMenu;
     private ScanModel scanModel;
     private ScanPreference scanPreference;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,11 @@ public class FoodCategory extends AppCompatActivity {
 
         getMenuFromFirebase();
         recyclerView = (RecyclerView) findViewById(R.id.categories);
+        progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar.getIndeterminateDrawable().setColorFilter(
+                getResources().getColor(R.color.colorPrimary),
+                android.graphics.PorterDuff.Mode.SRC_IN);
+        progressBar.setVisibility(View.VISIBLE);
         recyclerView.setHasFixedSize(true);
 
         stagaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, 1);
@@ -84,6 +92,7 @@ public class FoodCategory extends AppCompatActivity {
                             foodMenu.get(food.getCategory()).add(food);
                         }
                     }
+                    progressBar.setVisibility(View.GONE);
                     categoriesAdapter.notifyDataSetChanged();
                 } else {
                     System.out.println("DATASNAPSHOT: null");
