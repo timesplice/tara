@@ -30,7 +30,7 @@ public class ScanPreference {
 
     public void setScanInPreference(String hotelId, String tableId) {
         editor.putString(HOTELID, hotelId);
-        editor.putString(HOTELID, tableId);
+        editor.putString(TABLEID, tableId);
         editor.commit();
     }
 
@@ -43,8 +43,8 @@ public class ScanPreference {
 
     public ScanModel getScanDetails() {
         ScanModel scanModel = new ScanModel();
-        scanModel.setHotelId(pref.getString(HOTELID, "username"));
-        scanModel.setTableId(pref.getString(TABLEID, "Email"));
+        scanModel.setHotelId(pref.getString(HOTELID, ""));
+        scanModel.setTableId(pref.getString(TABLEID, ""));
 
         return scanModel;
     }

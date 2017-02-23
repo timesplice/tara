@@ -95,8 +95,8 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
             public void onSuccess(Uri uri) {
                 Picasso.with(context)
                         .load(uri)
-                        .resize(100, 100)
-                        .centerInside()
+                        .fit()
+                        .centerCrop()
                         .into(imageView);
             }
         }).addOnFailureListener(new OnFailureListener() {
