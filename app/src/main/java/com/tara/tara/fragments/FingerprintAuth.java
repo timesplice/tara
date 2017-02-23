@@ -4,6 +4,7 @@ package com.tara.tara.fragments;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tara.tara.R;
+import com.tara.tara.ThankPage;
 import com.tara.tara.util.FingerprintAuthHelper;
 
 import java.io.IOException;
@@ -215,6 +217,7 @@ public class FingerprintAuth extends DialogFragment {
             @Override
             public void onAnimationEnd(Animation animation) {
                 status.setText(getString(R.string.auth_success));
+                startActivity(new Intent(getContext(), ThankPage.class));
                 getDialog().dismiss();
             }
 

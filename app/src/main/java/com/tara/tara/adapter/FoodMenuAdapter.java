@@ -29,7 +29,7 @@ import java.util.List;
 public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuViewHolder> {
 
     private List<FoodMenuModel> data;
-    private String hotelId,tableId;
+    private String hotelId, tableId;
 
     public FoodMenuAdapter(List<FoodMenuModel> data, String hotelId, String tableId) {
         this.data = data;
@@ -81,21 +81,21 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.MenuVi
         TextView foodDesc = holder.foodDesc;
         TextView foodPrice = holder.foodPrice;
 
-        System.out.println("POSITION:"+position);
-        System.out.println("IN ADAPTER:"+data.get(position).getName());
+        System.out.println("POSITION:" + position);
+        System.out.println("IN ADAPTER:" + data.get(position).getName());
 
         foodTitle.setText(data.get(position).getName());
         foodDesc.setText(data.get(position).getDesc());
-        foodPrice.setText("" + data.get(position).getPrice());
+        foodPrice.setText(data.get(position).getPrice() + " ₹");
 
         final Context context = imageView.getContext();
 
         FirebaseStorage.getInstance().getReference().child(data.get(position).getImageUrl()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                   Picasso.with(context)
+                Picasso.with(context)
                         .load(uri)
-                        .resize(100,100)
+                        .resize(100, 100)
                         .centerInside()
                         .into(imageView);
             }

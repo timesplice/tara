@@ -29,6 +29,7 @@ public class StartScan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_scan);
 
+        setTitle("Scan QR");
         scan = (Button) findViewById(R.id.scan);
         qrScan = new IntentIntegrator(this);
         scan.setOnClickListener(new View.OnClickListener() {

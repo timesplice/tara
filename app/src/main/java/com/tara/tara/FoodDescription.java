@@ -78,7 +78,7 @@ public class FoodDescription extends AppCompatActivity {
         });
         foodName.setText(foodItem.getName());
         foodDesc.setText(foodItem.getDesc());
-        foodPrice.setText(foodItem.getPrice() + "\u20B9");
+        foodPrice.setText(foodItem.getPrice() + " \u20B9");
         progressBar.setProgress(foodItem.getAvgStars());
         rating.setText(foodItem.getAvgStars() + "");
     }

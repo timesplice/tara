@@ -122,7 +122,7 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Cart
         final ImageView foodImage = holder.foodImage;
 
         productTitle.setText(data.get(position).getName());
-        productAmount.setText(data.get(position).getPrice() + "");
+        productAmount.setText(data.get(position).getPrice() + " ₹");
         foodDescription.setText(data.get(position).getDesc());
 
         FirebaseStorage.getInstance().getReference().child(data.get(position).getImageUrl()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
