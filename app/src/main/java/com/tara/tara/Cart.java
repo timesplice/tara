@@ -34,6 +34,7 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        setTitle("Cart");
         Intent data = getIntent();
         if (data != null) {
             hotelId = data.getStringExtra("hotelId");

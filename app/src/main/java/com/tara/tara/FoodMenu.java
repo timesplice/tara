@@ -1,24 +1,24 @@
 package com.tara.tara;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.tara.tara.adapter.CategoriesAdapter;
 import com.tara.tara.adapter.FoodMenuAdapter;
 import com.tara.tara.model.FoodMenuModel;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,5 +95,26 @@ public class FoodMenu extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A simple {@link Fragment} subclass.
+     */
+    public static class Offers extends Fragment {
+
+
+        public Offers() {
+            // Required empty public constructor
+        }
+
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            View view = inflater.inflate(R.layout.fragment_offers, container, false);
+            return view;
+        }
+
     }
 }

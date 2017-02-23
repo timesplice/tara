@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,6 +14,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.tara.tara.adapter.CategoriesAdapter;
 import com.tara.tara.model.CategoriesModel;
 import com.tara.tara.model.FoodMenuModel;
+import com.tara.tara.model.ScanModel;
+import com.tara.tara.util.ScanPreference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,9 +29,11 @@ public class FoodCategory extends AppCompatActivity {
     private StaggeredGridLayoutManager stagaggeredGridLayoutManager;
 
     private CategoriesAdapter categoriesAdapter;
-    private List<CategoriesModel> categoriesModels=new ArrayList<>();
+    private List<CategoriesModel> categoriesModels = new ArrayList<>();
     private String hotelId, tableId;
     private HashMap<String, ArrayList<FoodMenuModel>> foodMenu;
+    private ScanModel scanModel;
+    private ScanPreference scanPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +42,12 @@ public class FoodCategory extends AppCompatActivity {
         foodMenu = new HashMap<String, ArrayList<FoodMenuModel>>();
 
         setTitle("Categories");
-        Intent hotelDetails = getIntent();
-        if (hotelDetails != null) {
-            hotelId = hotelDetails.getStringExtra("hotelId");
-            tableId = hotelDetails.getStringExtra("tableId");
-        }
+        scanPreference = new ScanPreference(this);
+        scanModel = scanPreference.getScanDetails();
+
+        hotelId = scanModel.getHotelId();
+        tableId = scanModel.getTableId();
+
         getMenuFromFirebase();
         recyclerView = (RecyclerView) findViewById(R.id.categories);
         recyclerView.setHasFixedSize(true);
@@ -88,5 +95,26 @@ public class FoodCategory extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_food, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        } else if (id == R.id.action_signin) {
+            Intent intent = new Intent(getApplicationContext(), Cart.class);
+            intent.putExtra("hotelId", hotelId);
+            intent.putExtra("tableId", tableId);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

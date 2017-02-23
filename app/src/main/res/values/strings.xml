@@ -8,6 +8,15 @@
 
     <string name="facebook_app_id">656202737899513</string>
 
+    <string name="restaurant_desc">
+    A wonderful restaurant, set in Adrasan, with views over the beach, the food is delicious.
+    As a vegetarian love the place, as do my meat eating friends, never had a bad meal here.
+    Portions are a good size, cooked to perfection.</string>
+
+    <string name="laundary_desc">No matter what your laundry list of requirements in choosing a mate
+        , there has to be an element of good luck and good fortune and good timing.</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="touch_sensor_prompt">Confirm fingerprint to continue. Touch sensor now.</string>

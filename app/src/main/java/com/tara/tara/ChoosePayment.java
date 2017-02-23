@@ -22,6 +22,7 @@ public class ChoosePayment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_payment);
 
+        setTitle("Choose payment type");
         paymenTypeGroup = (RadioGroup) findViewById(R.id.payment_radio_group);
         footer = (LinearLayout) findViewById(R.id.footer);
         footer.setOnClickListener(new View.OnClickListener() {

@@ -36,7 +36,9 @@
         <activity android:name=".HotelAnimation" />
         <activity android:name=".ChoosePayment" />
         <activity android:name=".StartScan" />
-        <activity android:name=".Cart"></activity>
+        <activity android:name=".Cart" />
+        <activity android:name=".PreviousOrders" />
+        <activity android:name=".FeedBack"></activity>
     </application>
 
 </manifest>
