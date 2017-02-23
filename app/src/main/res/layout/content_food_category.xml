@@ -16,8 +16,7 @@
             android:layout_height="wrap_content"
             android:minHeight="150dp"
             android:minWidth="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_chef" />
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/category_title"
@@ -25,7 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/category_image"
             android:layout_centerHorizontal="true"
-            android:padding="5dp" />
+            android:padding="5dp"
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 

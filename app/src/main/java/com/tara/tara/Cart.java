@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.tara.tara.adapter.CartItemsAdapter;
 import com.tara.tara.model.FoodMenuModel;
 import com.tara.tara.util.CartItems;
+import com.tara.tara.util.ScanPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,7 @@ public class Cart extends AppCompatActivity {
     private TextView total;
     private LinearLayout payment;
     private int grandTotal = 0;
+    private ScanPreference scanPreference;
 
     public static final String FOOD_ID = "food_id";
     public static final String FOOD_NAME = "food_name";
@@ -41,11 +45,12 @@ public class Cart extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         setTitle("Cart");
-        Intent data = getIntent();
-        if (data != null) {
-            hotelId = data.getStringExtra("hotelId");
-            tableId = data.getStringExtra("tableId");
-        }
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        scanPreference = new ScanPreference(this);
+        hotelId = scanPreference.getScanDetails().getHotelId();
+        tableId = scanPreference.getScanDetails().getTableId();
+
         cartItemsDb = new CartItems(this);
         recyclerView = (RecyclerView) findViewById(R.id.cart_item);
         total = (TextView) findViewById(R.id.total);
@@ -100,5 +105,21 @@ public class Cart extends AppCompatActivity {
         cartItemsDb.deleteByProductId(cartItem.getFoodId());
         cartItems.clear();
         populateCartItems();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_empty, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

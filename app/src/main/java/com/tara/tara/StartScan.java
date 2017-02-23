@@ -16,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.tara.tara.model.HotelModel;
+import com.tara.tara.util.ScanPreference;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +25,8 @@ public class StartScan extends AppCompatActivity {
 
     private Button scan;
     private IntentIntegrator qrScan;
-    private TextView previousOrders;
+    private TextView previousMenu;
+    private ScanPreference scanPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +35,21 @@ public class StartScan extends AppCompatActivity {
 
         setTitle("Scan");
         scan = (Button) findViewById(R.id.scan);
-        previousOrders = (TextView) findViewById(R.id.previous_order);
+        previousMenu = (TextView) findViewById(R.id.previous_order);
         qrScan = new IntentIntegrator(this);
+        scanPreference = new ScanPreference(this);
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 qrScan.initiateScan();
             }
         });
-        previousOrders.setOnClickListener(new View.OnClickListener() {
+        previousMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent hotelDetails = new Intent(StartScan.this, HotelAnimation.class);
+                hotelDetails.putExtra("hotelName", "Hotel Brindavan");
+                startActivity(hotelDetails);
             }
         });
     }
@@ -69,10 +74,10 @@ public class StartScan extends AppCompatActivity {
                                 if (dataSnapshot != null && dataSnapshot.getKey() != null) {
                                     HotelModel hotelModel = dataSnapshot.getValue(HotelModel.class);
 
+                                    scanPreference.setScanInPreference(hotelId, tableId);
+                                    System.out.println("Scan" + hotelId + tableId);
                                     Intent hotelDetails = new Intent(StartScan.this, HotelAnimation.class);
                                     hotelDetails.putExtra("hotelName", hotelModel.getName());
-                                    hotelDetails.putExtra("hotelId", hotelId);
-                                    hotelDetails.putExtra("tableId", tableId);
                                     startActivity(hotelDetails);
                                 }
                             }

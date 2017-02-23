@@ -8,6 +8,19 @@
 
     <string name="facebook_app_id">656202737899513</string>
 
+    <string name="slide_1_title">Scan QR code</string>
+    <string name="slide_1_desc">The easiest way to order food is just away with a simple scan!</string>
+
+    <string name="slide_2_title">Fast Delivery</string>
+    <string name="slide_2_desc">Tara brings you your order faster than you just scanned the QR!</string>
+
+    <string name="slide_3_title">Fingerprint Auth</string>
+    <string name="slide_3_desc">The highly secure way to pay using your fingerprint!</string>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">BINGO!</string>
+
     <string name="restaurant_desc">
     A wonderful restaurant, set in Adrasan, with views over the beach, the food is delicious.
     As a vegetarian love the place, as do my meat eating friends, never had a bad meal here.
@@ -25,4 +38,5 @@
     <string name="error_msg_no_lock_screen">Secure lock screen has not been set up.\nGo to \'Settings -> Security -> Fingerprint\' to set up a fingerprint</string>
     <string name="error_msg_no_fingerprint">Go to \'Settings -> Security -> Fingerprint\' and register at least one fingerprint</string>
     <string name="error_msg_pre_signup">Please register with this device to signin in future.</string>
+    <string name="title_activity_home">Home</string>
 </resources>

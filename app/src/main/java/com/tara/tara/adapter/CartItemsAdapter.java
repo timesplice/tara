@@ -130,6 +130,8 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Cart
             public void onSuccess(Uri uri) {
                 Picasso.with(context)
                         .load(uri)
+                        .fit()
+                        .centerCrop()
                         .into(foodImage);
             }
         }).addOnFailureListener(new OnFailureListener() {

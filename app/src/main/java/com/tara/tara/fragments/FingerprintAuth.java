@@ -26,9 +26,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.tara.tara.FeedBack;
 import com.tara.tara.R;
-import com.tara.tara.ThankPage;
 import com.tara.tara.util.FingerprintAuthHelper;
+import com.tara.tara.util.ScanPreference;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -66,7 +68,8 @@ public class FingerprintAuth extends DialogFragment {
     private TextView status;
     private Button cancel;
     private Long productId = Long.valueOf(0);
-    private String productName, productPrice, productDesc, productImageurl;
+    private String orderId, hotelId, tableId;
+    private ScanPreference scanPreference;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -75,14 +78,9 @@ public class FingerprintAuth extends DialogFragment {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_fingerprint_auth, container, false);
 
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            productId = bundle.getLong("product_id", 0);
-            productName = bundle.getString("product_name");
-            productPrice = bundle.getString("product_price");
-            productImageurl = bundle.getString("product_imageurl");
-            productDesc = bundle.getString("product_desc");
-        }
+        scanPreference = new ScanPreference(getContext());
+        orderId = getArguments().getString("orderId");
+        hotelId = scanPreference.getScanDetails().getHotelId();
 
         keyguardManager = (KeyguardManager) getActivity().getSystemService(KEYGUARD_SERVICE);
         fingerprintManager = (FingerprintManager) getActivity().getSystemService(FINGERPRINT_SERVICE);
@@ -217,7 +215,8 @@ public class FingerprintAuth extends DialogFragment {
             @Override
             public void onAnimationEnd(Animation animation) {
                 status.setText(getString(R.string.auth_success));
-                startActivity(new Intent(getContext(), ThankPage.class));
+                FirebaseDatabase.getInstance().getReference().child("hotelOrders").child(hotelId).child(orderId).child("payment").setValue(true);
+                startActivity(new Intent(getContext(), FeedBack.class));
                 getDialog().dismiss();
             }
 
@@ -254,4 +253,5 @@ public class FingerprintAuth extends DialogFragment {
 
             }
         });
-    }}
+    }
+}
