@@ -27,6 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.FirebaseDatabase;
+import com.tara.tara.Cart;
+import com.tara.tara.ChoosePayment;
+import com.tara.tara.ElapsedTime;
 import com.tara.tara.FeedBack;
 import com.tara.tara.R;
 import com.tara.tara.util.FingerprintAuthHelper;
@@ -68,7 +71,7 @@ public class FingerprintAuth extends DialogFragment {
     private TextView status;
     private Button cancel;
     private Long productId = Long.valueOf(0);
-    private String orderId, hotelId, tableId;
+    private String total, hotelId, tableId;
     private ScanPreference scanPreference;
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -79,7 +82,7 @@ public class FingerprintAuth extends DialogFragment {
         View view = inflater.inflate(R.layout.fragment_fingerprint_auth, container, false);
 
         scanPreference = new ScanPreference(getContext());
-        orderId = getArguments().getString("orderId");
+        total = getArguments().getString("total");
         hotelId = scanPreference.getScanDetails().getHotelId();
 
         keyguardManager = (KeyguardManager) getActivity().getSystemService(KEYGUARD_SERVICE);
@@ -215,8 +218,10 @@ public class FingerprintAuth extends DialogFragment {
             @Override
             public void onAnimationEnd(Animation animation) {
                 status.setText(getString(R.string.auth_success));
-                FirebaseDatabase.getInstance().getReference().child("hotelOrders").child(hotelId).child(orderId).child("payment").setValue(true);
-                startActivity(new Intent(getContext(), FeedBack.class));
+//                FirebaseDatabase.getInstance().getReference().child("hotelOrders").child(hotelId).child(orderId).child("payment").setValue(true);
+                Intent intent = new Intent(getContext(), ElapsedTime.class);
+                intent.putExtra("total", total);
+                startActivity(intent);
                 getDialog().dismiss();
             }
 

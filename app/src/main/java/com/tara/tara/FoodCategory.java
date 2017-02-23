@@ -45,6 +45,11 @@ public class FoodCategory extends AppCompatActivity {
         foodMenu = new HashMap<String, ArrayList<FoodMenuModel>>();
 
         setTitle("Categories");
+        progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar.getIndeterminateDrawable().setColorFilter(
+                getResources().getColor(R.color.colorPrimary),
+                android.graphics.PorterDuff.Mode.SRC_IN);
+        progressBar.setVisibility(View.VISIBLE);
         scanPreference = new ScanPreference(this);
         scanModel = scanPreference.getScanDetails();
 
@@ -53,11 +58,6 @@ public class FoodCategory extends AppCompatActivity {
 
         getMenuFromFirebase();
         recyclerView = (RecyclerView) findViewById(R.id.categories);
-        progressBar = (ProgressBar) findViewById(R.id.progress);
-        progressBar.getIndeterminateDrawable().setColorFilter(
-                getResources().getColor(R.color.colorPrimary),
-                android.graphics.PorterDuff.Mode.SRC_IN);
-        progressBar.setVisibility(View.VISIBLE);
         recyclerView.setHasFixedSize(true);
 
         stagaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, 1);

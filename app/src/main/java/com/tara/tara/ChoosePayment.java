@@ -40,7 +40,6 @@ public class ChoosePayment extends AppCompatActivity {
         Intent data = getIntent();
         if (data != null) {
             total = data.getIntExtra("total", 0);
-            orderId = data.getStringExtra("orderId");
         }
 
 
@@ -64,7 +63,7 @@ public class ChoosePayment extends AppCompatActivity {
         FingerprintAuth fingerprintDialog = new FingerprintAuth();
 
         Bundle args = new Bundle();
-        args.putString("orderId", orderId);
+        args.putInt("total", total);
         fingerprintDialog.setArguments(args);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
