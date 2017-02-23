@@ -47,8 +47,9 @@ public class StartScan extends AppCompatActivity {
         previousMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                scanPreference.setScanInPreference("hotel1", "table1");
                 Intent hotelDetails = new Intent(StartScan.this, HotelAnimation.class);
-                hotelDetails.putExtra("hotelName", "Hotel Brindavan");
+                hotelDetails.putExtra("hotelName", "Alto Vino");
                 startActivity(hotelDetails);
             }
         });

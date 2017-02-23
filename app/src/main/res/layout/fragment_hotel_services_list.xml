@@ -128,7 +128,7 @@
                     android:background="@color/dull_background" />
 
                 <TextView
-                    android:id="@+id/laundary"
+                    android:id="@+id/laundry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"

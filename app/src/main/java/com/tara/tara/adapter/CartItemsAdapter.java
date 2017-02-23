@@ -132,6 +132,7 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Cart
                         .load(uri)
                         .fit()
                         .centerCrop()
+                        .placeholder(R.drawable.ic_img_placeholder)
                         .into(foodImage);
             }
         }).addOnFailureListener(new OnFailureListener() {

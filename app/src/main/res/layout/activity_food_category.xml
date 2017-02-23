@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.tara.tara.FoodCategory">
 
+    <include layout="@layout/content_progress" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/categories"

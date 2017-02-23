@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     tools:context=".FoodMenu">
 
+    <include layout="@layout/content_progress" />
+
     <RelativeLayout
         android:id="@+id/recycler_container"
         android:layout_width="wrap_content"
