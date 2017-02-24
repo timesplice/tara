@@ -52,13 +52,13 @@ public class FoodMenu extends AppCompatActivity {
         }
 
         recyclerView = (RecyclerView) findViewById(R.id.food_menu);
-        progressBar = (ProgressBar) findViewById(R.id.progress);
-        progressBar = (ProgressBar) findViewById(R.id.progress);
-        progressBar.getIndeterminateDrawable().setColorFilter(
-                getResources().getColor(R.color.colorPrimary),
-                android.graphics.PorterDuff.Mode.SRC_IN);
-        progressBar.setVisibility(View.VISIBLE);
-
+        if(foodIds!=null && foodIds.size()>0) {
+            progressBar = (ProgressBar) findViewById(R.id.progress);
+            progressBar.getIndeterminateDrawable().setColorFilter(
+                    getResources().getColor(R.color.colorPrimary),
+                    android.graphics.PorterDuff.Mode.SRC_IN);
+            progressBar.setVisibility(View.VISIBLE);
+        }
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());

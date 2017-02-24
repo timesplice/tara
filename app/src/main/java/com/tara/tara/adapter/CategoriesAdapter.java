@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,8 +68,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
             Intent intent = new Intent(v.getContext(), FoodMenu.class);
 
             ArrayList<String> foodIdList = new ArrayList<String>();
-            for (FoodMenuModel food : foodMenu.get(category.getCategoryName())) {
-                foodIdList.add(food.getFoodId());
+            if(foodMenu.get(category.getCategoryName())!=null) {
+                for (FoodMenuModel food : foodMenu.get(category.getCategoryName())) {
+                    foodIdList.add(food.getFoodId());
+                }
             }
             //intent.putExtra("PRODUCT_ID",  foodMenu.get(category.getCategoryName()));
             intent.putStringArrayListExtra("foodIdList", foodIdList);
@@ -89,26 +92,38 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
     @Override
     public void onBindViewHolder(CategoriesAdapter.CategoryViewHolder holder, int position) {
+        if (position == 0) {
+            StaggeredGridLayoutManager.LayoutParams layoutParams = (StaggeredGridLayoutManager.LayoutParams) holder.itemView.getLayoutParams();
+            layoutParams.setFullSpan(true);
+        }
         final ImageView imageView = holder.imageView;
         TextView categoryTitle = holder.categoryTitle;
 
         categoryTitle.setText(data.get(position).getCategoryName());
         final Context context = imageView.getContext();
 
-        FirebaseStorage.getInstance().getReference().child(data.get(position).getImage()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.with(context)
-                        .load(uri)
-                        .placeholder(R.drawable.ic_img_placeholder)
-                        .into(imageView);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-            }
-        });
+        /*if(position == 0) {
+            Uri uri = Uri.parse(data.get(position).getImage());
+            Picasso.with(context)
+                    .load(uri)
+                    .placeholder(R.drawable.ic_img_placeholder)
+                    .into(imageView);
+        }else{*/
+            FirebaseStorage.getInstance().getReference().child(data.get(position).getImage()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.with(context)
+                            .load(uri)
+                            .placeholder(R.drawable.ic_img_placeholder)
+                            .into(imageView);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                }
+            });
+        //}
 
 
     }

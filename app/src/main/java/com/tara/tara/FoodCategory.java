@@ -1,6 +1,8 @@
 package com.tara.tara;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -18,6 +24,8 @@ import com.tara.tara.model.CategoriesModel;
 import com.tara.tara.model.FoodMenuModel;
 import com.tara.tara.model.ScanModel;
 import com.tara.tara.util.ScanPreference;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,6 +64,7 @@ public class FoodCategory extends AppCompatActivity {
         hotelId = scanModel.getHotelId();
         tableId = scanModel.getTableId();
 
+       // getFacebookProfileImage();
         getMenuFromFirebase();
         recyclerView = (RecyclerView) findViewById(R.id.categories);
         recyclerView.setHasFixedSize(true);
@@ -65,6 +74,32 @@ public class FoodCategory extends AppCompatActivity {
 
         categoriesAdapter = new CategoriesAdapter(categoriesModels, foodMenu, hotelId, tableId);
         recyclerView.setAdapter(categoriesAdapter);
+    }
+
+    private void getFacebookProfileImage(){
+        Bundle params = new Bundle();
+        params.putString("fields", "id,email,gender,cover,picture.type(large)");
+        new GraphRequest(AccessToken.getCurrentAccessToken(), "me", params, HttpMethod.GET,
+                new GraphRequest.Callback() {
+                    @Override
+                    public void onCompleted(GraphResponse response) {
+                        if (response != null) {
+                            try {
+                                JSONObject data = response.getJSONObject();
+                                System.out.println("FACEBOOK DATA::"+data);
+                                if (data.has("cover")) {
+                                    String profilePicUrl = data.getJSONObject("cover").getString("source");
+                                    //profilePicUrl
+                                    categoriesModels.add(new CategoriesModel("profileImageId",
+                                            "My Interest", profilePicUrl));
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        getMenuFromFirebase();
+                    }
+                }).executeAsync();
     }
 
     private void getMenuFromFirebase() {
