@@ -64,7 +64,8 @@ public class FoodCategory extends AppCompatActivity {
         hotelId = scanModel.getHotelId();
         tableId = scanModel.getTableId();
 
-       // getFacebookProfileImage();
+       // setting profile photo from firebase, need to change to facebook
+        categoriesModels.add(new CategoriesModel("profileImageId", "My Interest", "hotel1/user/user1.jpg"));
         getMenuFromFirebase();
         recyclerView = (RecyclerView) findViewById(R.id.categories);
         recyclerView.setHasFixedSize(true);

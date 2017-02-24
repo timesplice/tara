@@ -1,16 +1,15 @@
 package com.tara.tara;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
@@ -22,16 +21,13 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.tara.tara.fragments.HotelServicesList;
-import com.tara.tara.model.FoodMenuModel;
 import com.tara.tara.model.HotelOrderModel;
 import com.tara.tara.model.UserOrderModel;
 import com.tara.tara.util.CartItems;
 import com.tara.tara.util.ScanPreference;
 import com.tara.tara.util.UserPreference;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,6 +62,7 @@ public class ElapsedTime extends AppCompatActivity {
         scanPreference = new ScanPreference(this);
         cartItemsDb = new CartItems(this);
 
+        headingText.setText("Sending request to chef");
         Intent data = getIntent();
         if (data != null) {
             total = data.getIntExtra("total", 0);
@@ -118,6 +115,7 @@ public class ElapsedTime extends AppCompatActivity {
                 estimatedTime = (int) userOrder.getWaitingTime() * 60;
                 timer = true;
                 progressBar.setMax((int) estimatedTime);
+                headingText.setText("Elapsed time");
                 startTimer();
             }
 
@@ -128,7 +126,7 @@ public class ElapsedTime extends AppCompatActivity {
                 Log.d("CHANGED:", "User order by:" + userOrder.hotel + "; orderID:" + dataSnapshot.getKey());
                 if (userOrder.getDelivered() == true) {
                     timer = false;
-                    Intent intent = new Intent(ElapsedTime.this, ChoosePayment.class);
+                    Intent intent = new Intent(ElapsedTime.this, FeedBack.class);
                     intent.putExtra("total", total);
                     intent.putExtra("orderId", dataSnapshot.getKey());
                     startActivity(intent);
@@ -154,25 +152,52 @@ public class ElapsedTime extends AppCompatActivity {
     }
 
     private void showNotif() {
-        Intent intent = new Intent(getApplicationContext(), HotelServicesList.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+//        Intent intent = new Intent(getApplicationContext(), HotelServicesList.class);
+//        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+//
+//        NotificationCompat.Builder b = new NotificationCompat.Builder(getApplicationContext());
+//        NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+//        bigTextStyle.setBigContentTitle("Coming soon");
+//        bigTextStyle.bigText("Your food is almost ready and about to reach you from the chef !");
+//        b.setAutoCancel(true)
+//                .setDefaults(Notification.DEFAULT_ALL)
+//                .setWhen(System.currentTimeMillis())
+//                .setSmallIcon(R.drawable.ic_chef)
+//                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_chef))
+//                .setStyle(bigTextStyle)
+//                .setColor(getResources().getColor(R.color.blue_grey))
+//                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+//                .setContentIntent(contentIntent);
+//
+//        NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+//        notificationManager.notify(1, b.build());
 
-        NotificationCompat.Builder b = new NotificationCompat.Builder(getApplicationContext());
-        NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
-        bigTextStyle.setBigContentTitle("Coming soon");
-        bigTextStyle.bigText("Your food is almost ready and about to reach you from the chef !");
-        b.setAutoCancel(true)
-                .setDefaults(Notification.DEFAULT_ALL)
-                .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.drawable.ic_chef)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_chef))
-                .setStyle(bigTextStyle)
-                .setColor(getResources().getColor(R.color.blue_grey))
-                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
-                .setContentIntent(contentIntent);
+        NotificationCompat.Builder mBuilder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.ic_chef)
+                        .setContentTitle("Coming soon")
+                        .setContentText("Your food is almost ready and about to reach you from the chef !!");
+        Intent resultIntent = new Intent(this, FeedBack.class);
 
-        NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1, b.build());
+        // The stack builder object will contain an artificial back stack for the
+        // started Activity.
+        // This ensures that navigating backward from the Activity leads out of
+        // your application to the Home screen.
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        // Adds the back stack for the Intent (but not the Intent itself)
+                stackBuilder.addParentStack(FeedBack.class);
+        // Adds the Intent that starts the Activity to the top of the stack
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+                mBuilder.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        // mId allows you to update the notification later on.
+        mNotificationManager.notify(1, mBuilder.build());
     }
 
     Runnable mRunnable;
