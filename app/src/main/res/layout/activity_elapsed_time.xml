@@ -28,7 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:text="Get going"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
