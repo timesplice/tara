@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="23"
+    density="xxhdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="19809062536954"
+    token="1925964227258922913"
+    verifier="COMPATIBLE" >
+
+    <task
+        name="javac"
+        duration="1226" />
+    <task
+        name="instant-run-dex"
+        duration="847" />
+    <task
+        name="instant-run-transform"
+        duration="247" />
+    <task
+        name="verifier"
+        duration="106" />
+
+    <artifact
+        location="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
+
+    <build
+        timestamp="17890196096878"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="19687608273792"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
+        <artifact
+            location="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="19809062536954"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+
+</instant-run>

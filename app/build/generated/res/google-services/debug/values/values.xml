@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">711981923636-afvqkfmfn5edmr623iqo30a7qo9jeh9r.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://tara-66080.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">711981923636</string>
+    <string name="google_api_key" translatable="false">AIzaSyDvaPuMiBXiuelWrwVF8AMreqElJdhcrVE</string>
+    <string name="google_app_id" translatable="false">1:711981923636:android:f41ce4696df8ba05</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDvaPuMiBXiuelWrwVF8AMreqElJdhcrVE</string>
+    <string name="google_storage_bucket" translatable="false">tara-66080.appspot.com</string>
+</resources>

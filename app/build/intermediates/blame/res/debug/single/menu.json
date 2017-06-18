@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_food.xml",
+        "source": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\src\\main\\res\\menu\\menu_food.xml"
+    },
+    {
+        "merged": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\res\\merged\\debug\\menu\\home.xml",
+        "source": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\src\\main\\res\\menu\\home.xml"
+    },
+    {
+        "merged": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_home_drawer.xml",
+        "source": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\src\\main\\res\\menu\\activity_home_drawer.xml"
+    },
+    {
+        "merged": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_empty.xml",
+        "source": "G:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\src\\main\\res\\menu\\menu_empty.xml"
+    }
+]

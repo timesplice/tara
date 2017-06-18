@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_b439ecc81d8a3957dae2315acf94006b67d13211\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_0ff487d44ff261359299c401e15be2aec56d54dd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5c21e1b667b257b49fff73f387dfd266d0af12cf">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_eda90b4dbb00107dd9530032d34a55d7e818450a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a8ae156c2726ac9c56daaf4b49452ec2cdb7bba9">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-25.1.1_6099541aced8820dd33fdb6b7d1e5589b0f64415\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_673e44bc9983d0163fec03340af4c9e7e46b1654\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\MUNNURU SRIKANTH\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_9427f59b567de4533d1e9aa6a0f9d4e7a7e4071c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_4f0c27525bb19b2a24cf2075c7084dd24ad4aca4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_efc877bec9c2ede61ba3870103a47a9e6c402dde\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_598278f300dd0f956f45a3b540c914cf9723f23d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.1_1e08cd0d9753ab189d68bdbdc09dbe39d8471aad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.19.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6047a34af07d6ec4e950ba1dc70ce23ac65ecaa">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.19.0_2bc5a8e3dad3aa1a5f20557fcccbdaabe5736a06\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\MUNNURU SRIKANTH\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_af1dac9b4ce4d7264f19fac4ce3e72a14597734c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_c07919376ed7d29506fb7e0c7387bbf602d498cd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_d079507cb575f04eaa3f98c9a383ac03ccf080a9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_7deae1370c17ed10567715c2b204b3ac2a5a3e02\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="541d95a25a0f80044a7e27b6c017348d4e64e2cb">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_62c8555662037fd879ff2a075c0dff0dca629959\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\MUNNURU SRIKANTH\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_e53603635910f84885302044db3c2a2f31fb4245\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\MUNNURU SRIKANTH\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_7bf8b1d1c5fc8f96dfe441903d3c4e6ebf7699d0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_3d5e93ddbd95ad2de33b1767f99bc72df0104490\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_dd46c3b2e6abf230666292dd9fe4d7293e7f30a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_522b12081d715c06f26c6a79fb10fe8612f94443\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_2aa23ff8e5bf514751bb952bc963d9cc1dd90236\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.1_4e098de8d6816c24eb66dd0c1e96dab32d2ec9c0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_0b8ecc63725386d04a6ab6000f079cb0cdebe5b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_7d5c2adcec6810413e94ad948b20f0226591c9e3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\MUNNURU SRIKANTH\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.2.1\2287494d4f5f9f3a9a2bb6980e3f32053721b315\core-3.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\core-3.2.1_a3afbb262516666fc5d62bb4a2937032a050f599\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_8ae9d459319b4135832a59a05e19da34c88212f4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\customtabs\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-customtabs-25.0.0_79bee44fafa1eda9ba8f5d2df1e9d6769b7829d1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_3a3f1868a18ad1e0109a1c1b15ccc05fc2655699\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_24be568dd76ea90f11629aca1eb563e6b806cd5c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.1_68a3b32c14837717b2ba91a9bc5000019f7a1b08\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_adc6996accf6d7fc0d69476edf9b60e3cd5ecbe5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.journeyapps\zxing-android-embedded\3.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0e1f104cf60bfe34147ef670229f2635789c79a4">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.journeyapps-zxing-android-embedded-3.4.0_f4d12b12679f087ef0527b377053068a8f765b39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_3217953c4b95ca3791ee2d6a3f152435adefc245\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="G:\ajay\AndroidProjects\Latest_tara_git\tara\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_fbde79bb40bb91fc39a3f079d5e8d8b3b3570acf\classes.dex" />
+    </item>
+
+</items>

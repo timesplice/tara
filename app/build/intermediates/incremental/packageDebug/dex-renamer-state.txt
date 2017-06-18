@@ -1,0 +1,7 @@
+#Fri Feb 24 00:08:25 IST 2017
+base.0=G\:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_62c8555662037fd879ff2a075c0dff0dca629959
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=G\:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_eda90b4dbb00107dd9530032d34a55d7e818450a\\classes.dex
+base.1=G\:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_eda90b4dbb00107dd9530032d34a55d7e818450a
+file.0=G\:\\ajay\\AndroidProjects\\Latest_tara_git\\tara\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_62c8555662037fd879ff2a075c0dff0dca629959\\classes.dex
